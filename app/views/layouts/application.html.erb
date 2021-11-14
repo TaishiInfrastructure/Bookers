@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <!-- ヘッダー部分-->
+    <header class="clearfix">
+      <nav>
+        <h2>Bookers</h2>
+        <div class="nav-menu-area clearfix">
+          <% if user_signed_in? %>
+            <p class="nav-menu">
+             <%= link_to(user_path(current_user), class:"home") do %>
+             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+             Home
+             <% end %>
+            </p>
+         <% end %>
     <%= yield %>
   </body>
 </html>
