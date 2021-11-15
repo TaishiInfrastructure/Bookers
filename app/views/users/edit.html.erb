@@ -1,5 +1,8 @@
-<h2>User Info</h2>
-  <%= form_for(@user) do |f| %>
+<div class="col-xs-offset-3 col-xs-6">
+   
+
+  <h2>User Info</h2>
+   <%= form_for(@user) do |f| %>
     <p>Name</p>
     <%= f.text_field :name, class: "name" %>
     <p>Image</p>
@@ -11,3 +14,4 @@
     </p>
   <% end %>
 
+</div>
