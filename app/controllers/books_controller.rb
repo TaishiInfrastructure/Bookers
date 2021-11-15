@@ -6,7 +6,6 @@ class BooksController < ApplicationController
   before_action :login_user?, only:[:edit, :update, :destroy]
   before_action :new_book_path, only:[:index, :show]
 
-  
   def top
   end
   
@@ -66,5 +65,4 @@ class BooksController < ApplicationController
       redirect_to books_path
     end
   end
-  
 end

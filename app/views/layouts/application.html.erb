@@ -4,8 +4,7 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -13,7 +12,7 @@
     <!-- ヘッダー部分-->
     <header class="clearfix">
       <nav>
-    <h2>Bookers</h2>
+        <h2>Bookers</h2>
         <div class="nav-menu-area clearfix">
           <% if user_signed_in? %>
 
@@ -41,7 +40,7 @@
             Logout
             <% end %>
           </p>
-          
+
           <% else %>
 
           <p class="nav-menu">
@@ -73,8 +72,14 @@
         </div>
       </nav>
     </header>
-    
-         
+
+    <!-- サクセスメッセージ -->
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name %>">
+        <%= msg.html_safe %>
+      </div>
+    <% end %>
+
     <div class="container">
       <div class="row">
         <%= yield %>
