@@ -1,5 +1,16 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only:[
+    :index, :show, :edit,
+    :create, :update, :destroy
+  ]
+  before_action :login_user?, only:[:edit, :update, :destroy]
+  before_action :new_book_path, only:[:index, :show]
+
+  
   def top
+  end
+  
+  def about
   end
 
   def index
