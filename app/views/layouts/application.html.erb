@@ -13,23 +13,72 @@
     <!-- ヘッダー部分-->
     <header class="clearfix">
       <nav>
-        <h2>Bookers</h2>
+    <h2>Bookers</h2>
         <div class="nav-menu-area clearfix">
           <% if user_signed_in? %>
-            <p class="nav-menu">
-             <%= link_to(user_path(current_user), class:"home") do %>
-             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-             Home
-             <% end %>
-            </p>
-            
-            <p class="nav-menu">
+
+          <p class="nav-menu">
+            <%= link_to(user_path(current_user), class:"home") do %>
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            Home
+            <% end %>
+          </p>
+          <p class="nav-menu">
+            <%= link_to(users_path, class:"users") do %>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            Users
+            <% end %>
+          </p>
+          <p class="nav-menu">
+            <%= link_to(books_path, class:"books") do %>
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+            Books
+            <% end %>
+          </p>
+          <p class="nav-menu">
             <%= link_to(destroy_user_session_path, method: :delete, class:"logout") do %>
             <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
             Logout
             <% end %>
           </p>
-         <% end %>
-    <%= yield %>
+          
+          <% else %>
+
+          <p class="nav-menu">
+            <%= link_to(root_path, class:"home") do %>
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            Home
+            <% end %>
+          </p>
+          <p class="nav-menu">
+            <%= link_to(about_path, class:"about") do %>
+            <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+            About
+            <% end %>
+          </p>
+          <p class="nav-menu">
+            <%= link_to(new_user_registration_path, class:"sign_up") do %>
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            Sign up
+            <% end %>
+          </p>
+          <p class="nav-menu">
+            <%= link_to(new_user_session_path, class:"sign_in") do %>
+            <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+            Login
+            <% end %>
+          </p>
+
+          <% end %>
+        </div>
+      </nav>
+    </header>
+    
+         
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
