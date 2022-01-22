@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :login_user?, only:[:edit, :update, :destroy]
-  before_action :new_book_path, only:[:index, :show]
+  before_action :new_book_definition, only:[:index, :show]
 
   def index
     @users = User.all
@@ -38,5 +38,6 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
- 
+
 end
+

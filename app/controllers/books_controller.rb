@@ -4,17 +4,17 @@ class BooksController < ApplicationController
     :create, :update, :destroy
   ]
   before_action :login_user?, only:[:edit, :update, :destroy]
-  before_action :new_book_path, only:[:index, :show]
+  before_action :new_book_definition, only:[:index, :show]
 
   def top
   end
-  
+
   def about
   end
 
   def index
-     @user = current_user
-     @books = Book.all.reverse
+    @user = current_user
+    @books = Book.all.reverse
   end
 
   def show
@@ -23,7 +23,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-     @book = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def create
@@ -54,11 +54,11 @@ class BooksController < ApplicationController
   end
 
   private
-  
+
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
   def login_user?
     book = Book.find(params[:id])
     if book.user != current_user
@@ -66,3 +66,4 @@ class BooksController < ApplicationController
     end
   end
 end
+

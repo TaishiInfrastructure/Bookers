@@ -1,5 +1,7 @@
-<%= render '/books/sidebar', {user: @user, new_book: @new_book} %>
 <%= render '/books/errors', model: @new_book %>
+
+<%= render '/books/sidebar', {user: @user, new_book: @new_book} %>
+
 <div class="col-xs-9">
   <h2>Books</h2>
   <table class="table table-striped">
